@@ -1,0 +1,411 @@
+/* =====================================================================
+   RESET & BASE STYLES
+   ===================================================================== */
+
+/* Reset margins, paddings, and set box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling for supported browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styles */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  color: #000;
+  line-height: 1.6;
+}
+
+/* =====================================================================
+   PRELOADER STYLES
+   ===================================================================== */
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =====================================================================
+   NAVIGATION & HEADER
+   ===================================================================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-links li a:hover {
+  color: #444;
+}
+
+/* Hamburger menu (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  border-radius: 5px;
+}
+
+/* =====================================================================
+   PARALLAX SECTIONS & BACKGROUNDS
+   ===================================================================== */
+.parallax-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 5%;
+}
+
+/* Background images with parallax fixed-attachment */
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  z-index: -1;
+  /* For subtle parallax, initial translate offset */
+  transform: translateY(-20%);
+}
+
+/* Specific section backgrounds */
+.hero-bg {
+  background-image: url("assets/images/hero-bg.jpg");
+}
+.about-bg {
+  background-image: url("assets/images/about-bg.jpg");
+}
+.projects-bg {
+  background-image: url("assets/images/projects-bg.jpg");
+}
+.showcase-bg {
+  background-image: url("assets/images/showcase-bg.jpg");
+}
+.contact-bg {
+  background-image: url("assets/images/contact-bg.jpg");
+}
+
+/* =====================================================================
+   HERO SECTION
+   ===================================================================== */
+.hero-content {
+  color: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeIn 1s ease-out;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Call-to-action Button */
+.cta-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+}
+.cta-btn:hover {
+  background: #444;
+}
+
+/* Scroll Down Indicator */
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+.scroll-down a {
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* =====================================================================
+   SECTION CONTENT STYLES
+   ===================================================================== */
+.section-content {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+  padding: 4rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.section-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+}
+.section-content p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* About Section Content */
+.about-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* =====================================================================
+   PROJECTS GRID & CARDS
+   ===================================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding-top: 2rem;
+}
+.project-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.project-card:hover {
+  transform: translateY(-5px);
+}
+.project-card img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.project-card p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* =====================================================================
+   SHOWCASE SECTION
+   ===================================================================== */
+.showcase-content {
+  text-align: center;
+  color: #fff;
+  padding: 4rem 0;
+}
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding-top: 2rem;
+}
+.showcase-card {
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+.showcase-card:hover {
+  transform: translateY(-5px);
+}
+.showcase-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.showcase-card p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* =====================================================================
+   CONTACT FORM STYLES
+   ===================================================================== */
+.contact-content form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+.contact-content input,
+.contact-content textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.contact-content input:focus,
+.contact-content textarea:focus {
+  border-color: #000;
+  outline: none;
+}
+.contact-content button {
+  padding: 0.75rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.contact-content button:hover {
+  background: #444;
+}
+#form-status {
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: #000;
+}
+
+/* =====================================================================
+   FOOTER STYLES
+   ===================================================================== */
+footer {
+  background: #fff;
+  padding: 2rem 5%;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-content p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+.social-links a {
+  text-decoration: none;
+  color: #000;
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+.social-links a:hover {
+  color: #444;
+}
+
+/* =====================================================================
+   RESPONSIVE STYLES
+   ===================================================================== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 5%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    gap: 1rem;
+    z-index: 1100;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+  .section-content {
+    padding: 2rem;
+    margin: 1rem auto;
+  }
+}
